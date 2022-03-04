@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+ id="WebApp_ID" version="3.1">
+  <display-name>second_webapp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  
+  <!-- 查询单个用户 -->
+  <servlet>
+  <servlet-name>showSingleServlet</servlet-name>
+  <servlet-class>com.test.servlet.ShowSingleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>showSingleServlet</servlet-name>
+  <url-pattern>/servlet/showSingleServlet</url-pattern>
+  </servlet-mapping>
+  <!--查询所有用户-->
+  <servlet>
+  <servlet-name>
+  showAllServlet
+  </servlet-name>
+  <servlet-class>
+  com.test.servlet.ShowAllServlet
+  </servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>
+  showAllServlet
+  </servlet-name>
+  <url-pattern>/servlet/showAllServlet</url-pattern>
+
+  
+  </servlet-mapping>
+   <!-- 添加-->
+    <servlet>
+     <servlet-name>
+     addServlet
+    </servlet-name>
+    <servlet-class>
+    com.test.servlet.AddServlet
+    </servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>
+    addServlet
+    </servlet-name>
+    <url-pattern>/servlet/addServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- 查询 -->
+    <servlet>
+    <servlet-name>
+    showServlet
+    </servlet-name>
+    <servlet-class>
+      com.test.servlet.ShowServlet
+    </servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>
+    showServlet
+    </servlet-name>
+    <url-pattern>
+    /servlet/showServlet
+    </url-pattern>
+    </servlet-mapping>
+    
+    <!--删除-->
+    <servlet>
+    <servlet-name>
+    deleteServlet
+    </servlet-name>
+    <servlet-class>
+    com.test.servlet.DeleteServlet
+    </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+    <servlet-name>
+    deleteServlet
+    </servlet-name>
+    <url-pattern>
+    /servlet/deleteServlet
+    </url-pattern>
+    </servlet-mapping>
+    
+    <!--  修改-->
+    <servlet>
+      <servlet-name>
+      updateServlet
+    </servlet-name>
+    <servlet-class>
+    com.test.servlet.UpdateServlet
+    </servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>
+    updateServlet
+    </servlet-name>
+    <url-pattern>
+    /servlet/updateServlet
+    </url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    <servlet-name>addArtitleServlet</servlet-name>
+    <servlet-class>com.hcy.article.servlet.AddArtitleServlet</servlet-class>
+    </servlet>
+    
+<servlet-mapping>
+  <servlet-name>addArtitleServlet</servlet-name>
+  <url-pattern>/servlet/addArtitleServlet</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+  <servlet-name>showArticle</servlet-name>
+  <servlet-class>com.hcy.article.servlet.ShowArticleServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>showArticle</servlet-name>
+  <url-pattern>/servlet/showArticle</url-pattern>
+</servlet-mapping>
+<listener>
+    <listener-class>com.test.listener.ContextFinalizer</listener-class>
+</listener>
+
+
+</web-app>
