@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/showArticle.js"></script>
+<meta charset="utf-8">
+<title>注册</title>
+
+<script type="text/javascript">
+
+
+
+
+    function register(){
+    	var dataas = {
+    			username:$("#username").val(),
+    			password:$("#password").val()
+    	};
+    	console.log("username = " + $("#username").val() +",password =" +$("#password").val() );
+    	$.ajax({
+    		type:"post",
+    		url:"http://localhost:8080/second_webapp/servlet/addServlet",
+    		data:dataas,
+    		success:function(data){
+    			 var data = eval("("+data+")");
+    			 if(data.code == 1){
+    				 alert("注册成功");
+    				 window.location.href="http://localhost:8080/second_webapp/index.html";
+    			 }else{
+    				 alert("注册失败");
+    			 }
+    			
+    		}
+    	})
+    }
+    
+</script>
+</head>
+<body>
+<h1>添加用户</h1>
+
+  <table>
+  
+ <tr>
+ <td>用户名:</td>
+ <td><input type="text" id="username" name="username"/></td>
+ </tr>
+ <tr>
+ <td>密码:</td>
+ <td><input type="text" id="password" name="password"/></td>
+ </tr>
+    <tr>
+    <td><input type="button" value="注册" onclick="register()"/></td>
+    </tr>
+  </table>
+
+</body>
+
+
+</html>
+
+
+
+
+  

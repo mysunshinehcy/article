@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+     #content{
+     height:700px;
+     }
+     
+     #login{
+     width:50px;
+     }
+</style>
+<script type="text/javascript">
+
+
+
+$(function(){
+	$.ajax({
+		type:"post",
+		url:"http://localhost:8080/second_webapp/servlet/userServlet",
+		success:function(data){
+			console.log("dataUser=" + data);
+			var user = eval("("+data+")");
+			 if(user == null ){
+				 
+			 }else{
+				$("#username").text(user.username);
+				$("#login").css("display","none");
+				$("#username").css("display","block");
+			 }
+		}
+	})
+	
+})
+  function login(){
+	  window.location.href="login.html";
+  }
+  
+  
+  function exit(){
+	  window.location.href="login.html";
+  }
+  
+</script>
+</head>
+
+<body>
+
+<div id="login"><input  type="button" onclick="login()" value="登录"  id="login"/>
+</div>
+<div id="username"></div>
+<input type="button" onclick="exit()" value="退出" id="exit"/>
+<iframe  src="menu.jsp" width="100%"    id="content">
+ 
+   
+</iframe>
+</body>
+</html>
