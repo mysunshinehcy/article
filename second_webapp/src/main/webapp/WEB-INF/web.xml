@@ -13,8 +13,6 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  
-  
   <!-- 查询单个用户 -->
   <servlet>
   <servlet-name>showSingleServlet</servlet-name>
@@ -26,22 +24,14 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
   </servlet-mapping>
   <!--查询所有用户-->
   <servlet>
-  <servlet-name>
-  showAllServlet
-  </servlet-name>
-  <servlet-class>
-  com.test.servlet.ShowAllServlet
-  </servlet-class>
+  <servlet-name>showAllServlet</servlet-name>
+  <servlet-class>com.test.servlet.ShowAllServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-    <servlet-name>
-  showAllServlet
-  </servlet-name>
+    <servlet-name>showAllServlet</servlet-name>
   <url-pattern>/servlet/showAllServlet</url-pattern>
-
-  
-  </servlet-mapping>
+ </servlet-mapping>
+ 
    <!-- 添加-->
     <servlet>
      <servlet-name>
