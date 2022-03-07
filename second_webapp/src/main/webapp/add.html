@@ -3,19 +3,34 @@
 <html>
 <head>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/showArticle.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <meta charset="utf-8">
 <title>注册</title>
 
 <script type="text/javascript">
 
-
+$(function(){
+	   $.ajax({
+		   type:'post',
+		   url:"http://localhost:8080/second_webapp/servlet/rolesServlet",
+		   success:function(data){
+			   var datare = eval("("+data+")");
+			   var roles = $("#roles");
+			   for(var i = 0 ; i < datare.length ; i ++){
+				   var role = datare[i];
+				   var option = $("<option value='"+role.rid+"'>"+role.r_name+"</option>");
+				   roles.append(option);
+			   }
+		   }
+	   })
+})
 
 
     function register(){
     	var dataas = {
     			username:$("#username").val(),
-    			password:$("#password").val()
+    			password:$("#password").val(),
+    			rid:$("#roles").val()
     	};
     	console.log("username = " + $("#username").val() +",password =" +$("#password").val() );
     	$.ajax({
@@ -49,6 +64,12 @@
  <tr>
  <td>密码:</td>
  <td><input type="text" id="password" name="password"/></td>
+ </tr>
+ <tr>
+ <td>角色:</td>
+ <td><select id="roles">
+ 
+ </select></td>
  </tr>
     <tr>
     <td><input type="button" value="注册" onclick="register()"/></td>

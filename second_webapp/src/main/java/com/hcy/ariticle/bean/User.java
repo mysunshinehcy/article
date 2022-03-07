@@ -6,8 +6,19 @@ public class User {
 	private int uid;
 	private String username;
 	private String password;
+	private int rid;
 	
 	
+	public int getRid() {
+		return rid;
+	}
+
+
+	public void setRid(int rid) {
+		this.rid = rid;
+	}
+
+
 	public User() {
 		
 	}
@@ -45,7 +56,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [uid=" + uid + ", username=" + username + ", password=" + password + "]";
+		return "User [uid=" + uid + ", username=" + username + ", password=" + 
+	password + "  rid="+rid+"]";
 	}
 	
 	

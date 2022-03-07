@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hcy.ariticle.bean.User;
-import com.test.dao.UserDao;
-
+import com.hcy.article.dao.UserDao;
 import com.test.user.UserService;
 
 /**

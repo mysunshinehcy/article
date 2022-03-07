@@ -1,7 +1,8 @@
-package com.test.servlet;
+package com.hcy.role.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,21 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hcy.ariticle.bean.User;
-import com.hcy.article.dao.UserDao;
-import com.test.user.UserService;
+import com.google.gson.Gson;
+import com.hcy.ariticle.bean.Role;
+import com.hcy.role.dao.RoleDao;
+import com.hcy.role.service.RoleService;
 
 /**
- * Servlet implementation class DeleteServlet
+ * Servlet implementation class RolesServlet
  */
-@WebServlet("/DeleteServlet")
-public class DeleteServlet extends HttpServlet {
+@WebServlet("/RolesServlet")
+public class RolesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteServlet() {
+    public RolesServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +34,22 @@ public class DeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
-		int id = Integer.parseInt((String)request.getParameter("id"));
-		UserService simpl = new UserDao();
-		User stu = new User();
-		stu.setUid(id);
-		int result = simpl.delStu(stu);
-		if(result == 1) {
-			request.getRequestDispatcher("/servlet/showAllServlet").forward(request, response);
-		}else {
-			request.getRequestDispatcher("/fail.jsp").forward(request, response);
-		}
+	   response.setCharacterEncoding("utf-8");
+	   request.setCharacterEncoding("utf-8");
+		RoleService roleService = new RoleDao(); 
+		List<Role> list = roleService.findRoles();
+		Gson gson = new Gson();
+		String result = gson.toJson(list);
+		PrintWriter out = response.getWriter();
+		out.write(result);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
-		
+	
 		doGet(request, response);
 	}
 

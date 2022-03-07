@@ -165,6 +165,14 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 </servlet-mapping>
 
 
+<servlet>
+ <servlet-name>rolesServlet</servlet-name>
+ <servlet-class>com.hcy.role.servlet.RolesServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+ <servlet-name>rolesServlet</servlet-name>
+ <url-pattern>/servlet/rolesServlet</url-pattern>
+</servlet-mapping>
 <listener>
     <listener-class>com.test.listener.ContextFinalizer</listener-class>
 </listener>

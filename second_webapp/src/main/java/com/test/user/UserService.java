@@ -2,6 +2,7 @@ package com.test.user;
 
 import java.util.List;
 
+import com.hcy.ariticle.bean.Role;
 import com.hcy.ariticle.bean.User;
 
 
@@ -22,4 +23,6 @@ public interface UserService {
 	
 	//查
 	public List<User> findStu(User stu);
+	
+	   public List<User>  findRidByUid(User role);
 }

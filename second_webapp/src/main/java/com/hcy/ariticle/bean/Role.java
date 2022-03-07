@@ -4,7 +4,7 @@ public class Role {
 
 	private int rid;
 	private String r_name;
-	private int uid;
+
 	
 	public Role() {
 		
@@ -26,17 +26,11 @@ public class Role {
 		this.r_name = r_name;
 	}
 
-	public int getUid() {
-		return uid;
-	}
-
-	public void setUid(int uid) {
-		this.uid = uid;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Role [rid=" + rid + ", r_name=" + r_name + ", uid=" + uid + "]";
+		return "Role [rid=" + rid + ", r_name=" + r_name + ",]";
 	}
 
 	
